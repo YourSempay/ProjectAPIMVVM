@@ -1,0 +1,27 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="MVVM.Views.LoginWindow"
+        xmlns:vm="clr-namespace:MVVM.ViewModels"  
+        x:DataType="vm:LoginViewModel"
+        Width="600" Height="350"
+        Title="Вход">
+        
+        
+        <StackPanel Margin="20" Spacing="10">
+                <TextBlock Text="Логин:"/>
+                <TextBox Text="{Binding Username}"/>
+
+                <TextBlock Text="Пароль:"/>
+                <TextBox Text="{Binding Password}"/>
+
+                <CheckBox Content="Запомнить сессию" IsChecked="{Binding RememberMe}"/>
+
+                <Button Content="Войти" Command="{Binding LoginCommand}"/>
+
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="Red"/>
+        </StackPanel>
+        
+</Window>
