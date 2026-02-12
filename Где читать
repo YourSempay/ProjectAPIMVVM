@@ -1,0 +1,17 @@
+Где читать:
+API:
+  Папка Tools
+    JwtSetting
+  Папка Controllers
+    Auth Controller
+Program.cs
+MVVM:
+  Папка Services
+    ApiService
+    AuthService 
+  Папка ViewModels
+    LoginViewModel
+    MainWindowViewModel
+  Папка Views (cs файлы)
+    LoginWindow
+    MainWindow
