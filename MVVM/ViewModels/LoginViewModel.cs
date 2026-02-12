@@ -39,7 +39,7 @@ public class LoginViewModel : BaseVM
         get => _errorMessage;
         set => SetField(ref _errorMessage, value);
     }
-
+    public event Action? RequestOpenMainWindow;
     public RelayCommand LoginCommand { get; }
     public LoginViewModel(ApiService api, AuthService auth)
     {
@@ -62,7 +62,7 @@ public class LoginViewModel : BaseVM
 
             await _authService.SaveTokenAsync(response.Token, RememberMe);
             
-            //Доделать навигацию
+            RequestOpenMainWindow?.Invoke();
         }
         catch (ApiException ex) when (ex.StatusCode == System.Net.HttpStatusCode.Unauthorized)
         {

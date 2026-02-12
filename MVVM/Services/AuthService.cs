@@ -9,7 +9,7 @@ namespace MVVM.Services;
 public class AuthService
 {
     private const string FileName = "auth_token.dat";
-    private static readonly byte[] Salt = Encoding.UTF8.GetBytes("SystemControlHumanSalt");
+    private static readonly byte[] Salt = Encoding.UTF8.GetBytes("ProjectAPIMVVMSalt");
 
     private readonly string filePath;
 
@@ -20,7 +20,7 @@ public class AuthService
     {
         var dir = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "SystemControlHuman");
+            "ProjectAPIMVVM");
 
         Directory.CreateDirectory(dir);
         filePath = Path.Combine(dir, FileName);

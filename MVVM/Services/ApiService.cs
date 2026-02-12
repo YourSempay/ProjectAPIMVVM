@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -6,6 +7,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using MVVM.Models.Auth;
 using MVVM.Models.Employees;
+using MVVM.Models.Shifts;
 using MVVM.Tools;
 
 namespace MVVM.Services;
@@ -83,4 +85,20 @@ public class ApiService
         var response = await _httpClient.PostAsync("api/auth/profile", null);
         return await HandleResponse<EmployeeRoleDto>(response);
     }
+    
+    public async Task<List<EmployeeRoleDto>> GetEmployeesAsync()
+    {
+        ApplyAuth();
+        var response = await _httpClient.GetAsync("api/employees");
+        
+        return await HandleResponse<List<EmployeeRoleDto>>(response);
+    }
+    
+    public async Task<List<ShiftEmployeeDto>> GetShiftsAsync()
+    {
+        ApplyAuth();
+        var response = await _httpClient.GetAsync("api/shifts");
+        return await HandleResponse<List<ShiftEmployeeDto>>(response);
+    }
+    
 }

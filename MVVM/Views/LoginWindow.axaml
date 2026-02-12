@@ -6,22 +6,23 @@
         x:Class="MVVM.Views.LoginWindow"
         xmlns:vm="clr-namespace:MVVM.ViewModels"  
         x:DataType="vm:LoginViewModel"
-        Width="600" Height="350"
-        Title="Вход">
-        
-        
+        Width="600" Height="280"
+        Title="Вход"      
+        Background="#1E1E1E"
+        Foreground="#CCCCCC">
+
         <StackPanel Margin="20" Spacing="10">
-                <TextBlock Text="Логин:"/>
-                <TextBox Text="{Binding Username}"/>
-
-                <TextBlock Text="Пароль:"/>
-                <TextBox Text="{Binding Password}"/>
-
-                <CheckBox Content="Запомнить сессию" IsChecked="{Binding RememberMe}"/>
-
-                <Button Content="Войти" Command="{Binding LoginCommand}"/>
-
-                <TextBlock Text="{Binding ErrorMessage}" Foreground="Red"/>
+                <TextBlock Text="Логин:" Foreground="#CCCCCC"/>
+                <TextBox Text="{Binding Username}" Background="#2D2D2D" Foreground="#FFFFFF" BorderBrush="#555555"/>
+                 
+                <TextBlock Text="Пароль:" Foreground="#CCCCCC"/>
+                <TextBox Text="{Binding Password}" Background="#2D2D2D" Foreground="#FFFFFF" BorderBrush="#555555"/>
+                 
+                <CheckBox Content="Запомнить сессию" IsChecked="{Binding RememberMe}" Foreground="#CCCCCC"/>
+                  
+                <Button Content="Войти" Command="{Binding LoginCommand}" Background="#3A3A3A" Foreground="#FFFFFF" BorderBrush="#555555"/>
+                
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="#FF5555"/>
         </StackPanel>
         
 </Window>

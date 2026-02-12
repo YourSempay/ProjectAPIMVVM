@@ -5,6 +5,7 @@
       <map>
         <entry key="MVVM/App.axaml" value="MVVM/MVVM.csproj" />
         <entry key="MVVM/Views/LoginWindow.axaml" value="MVVM/MVVM.csproj" />
+        <entry key="MVVM/Views/MainWindow.axaml" value="MVVM/MVVM.csproj" />
       </map>
     </option>
   </component>
