@@ -94,9 +94,9 @@ public class ShiftsController : Controller
     public  async Task<ActionResult> AddShift(ShiftDto shift)
     {
         if (await db.Employees.FirstOrDefaultAsync(x => x.Id == shift.EmployeeId) == null)
-            return BadRequest("Нет пассажира");
+            return BadRequest("");
         if(shift.StartDateTime > shift.EndDateTime)
-            return BadRequest("Ты тупой");
+            return BadRequest("");
 
         db.Shifts.Add(new Shift()
         {

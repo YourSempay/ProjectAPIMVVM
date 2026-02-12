@@ -13,17 +13,27 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        _apiService = api;
-        _authService = auth;
+        _apiService = api;   // сохраняем ApiService
+        _authService = auth; // сохраняем AuthService
 
+        // Создаём ViewModel главного окна
         var vm = new MainWindowViewModel(api, auth);
+
+        // Подписка на событие RequestOpenLoginWindow
+        // Когда пользователь нажимает "Выйти" в главном окне, вызывается этот код:
         vm.RequestOpenLoginWindow += () =>
         {
+            //  Создаём окно логина
             var loginWindow = new LoginWindow(api, auth);
+
+            //  Показываем окно логина
             loginWindow.Show();
+
+            //  Закрываем главное окно
             this.Close();
         };
 
+        // Привязываем ViewModel к MainWindow
         DataContext = vm;
     }
 }
