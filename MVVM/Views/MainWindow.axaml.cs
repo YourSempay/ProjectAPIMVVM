@@ -32,7 +32,6 @@ public partial class MainWindow : Window
             //  Закрываем главное окно
             this.Close();
         };
-
         // Привязываем ViewModel к MainWindow
         DataContext = vm;
     }
