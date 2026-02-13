@@ -37,5 +37,6 @@
                                 <DataGrid ItemsSource="{Binding Shifts}" Background="#2D2D2D" Foreground="#FFFFFF"/>
                         </TabItem>
                 </TabControl>
+                
         </DockPanel>
 </Window>
