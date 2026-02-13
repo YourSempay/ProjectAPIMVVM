@@ -15,4 +15,7 @@ public class EmployeeDto
     public DateTime? HireDate { get; set; }
     
     public bool? IsActive { get; set; }
+    
+    public string FullName => $"{LastName} {FirstName}";
+    public string Status => (bool)IsActive ? "Работает" : "Отдыхает";
 }

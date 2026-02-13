@@ -56,8 +56,8 @@ public class LoginViewModel : BaseVM
         {
             var response = await _apiService.LoginAsync(new LoginDto()
             {
-                Username = this.Username,
-                Password = this.Password
+                UsernameD = this.Username,
+                PasswordD = this.Password
             });
 
             await _authService.SaveTokenAsync(response.Token, RememberMe);

@@ -13,6 +13,8 @@ public partial class MainWindowViewModel : BaseVM
     private readonly AuthService _authService;
     public ObservableCollection<EmployeeRoleDto> Employees { get; } = new();
     public ObservableCollection<ShiftEmployeeDto> Shifts { get; } = new();
+    
+    public ObservableCollection<EmployeeDto> Employeess { get; } = new();
 
     private string _currentUser = "";
     public string CurrentUser
@@ -46,10 +48,20 @@ public partial class MainWindowViewModel : BaseVM
         CurrentUser = $"{profile.EmployeeD.FirstName} {profile.EmployeeD.LastName}";
         CurrentRole = profile.RoleD.Title;
 
-        var employees = await _apiService.GetEmployeesAsync();
-        Employees.Clear();
-        foreach (var emp in employees)
-            Employees.Add(emp);
+        try
+        {
+            Employeess.Clear();
+            var list = await _apiService.GetEmployeesAsync();
+
+            Console.WriteLine("Employees count: " + list?.Count);
+
+            foreach (var emp in list)
+                Employeess.Add(emp.EmployeeD);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Ошибка загрузки сотрудников: " + ex);
+        }
 
         var shifts = await _apiService.GetShiftsAsync();
         Shifts.Clear();

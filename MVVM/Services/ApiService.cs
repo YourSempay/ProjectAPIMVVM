@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Threading.Tasks;
 using MVVM.Models.Auth;
 using MVVM.Models.Employees;
@@ -25,7 +26,7 @@ public class ApiService
         
         _httpClient = new HttpClient
         {
-            BaseAddress = new Uri("https://localhost:5093")
+            BaseAddress = new Uri("https://localhost:7138")
         };
         _authService.OnTokenChanged += ApplyAuth;
         ApplyAuth(); 
@@ -89,8 +90,9 @@ public class ApiService
     public async Task<List<EmployeeRoleDto>> GetEmployeesAsync()
     {
         ApplyAuth();
-        var response = await _httpClient.GetAsync("api/employees");
+        var response = await _httpClient.GetAsync("api/employees/All");
         
+        string r = JsonSerializer.Serialize(response);
         return await HandleResponse<List<EmployeeRoleDto>>(response);
     }
     

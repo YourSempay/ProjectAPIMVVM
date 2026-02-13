@@ -13,10 +13,10 @@
 
         <StackPanel Margin="20" Spacing="10">
                 <TextBlock Text="Логин:" Foreground="#CCCCCC"/>
-                <TextBox Text="{Binding Username}" Background="#2D2D2D" Foreground="#FFFFFF" BorderBrush="#555555"/>
+                <TextBox Text="{Binding Username}" Background="#2D2D2D" Foreground="Blue" BorderBrush="#555555" />
                  
                 <TextBlock Text="Пароль:" Foreground="#CCCCCC"/>
-                <TextBox Text="{Binding Password}" Background="#2D2D2D" Foreground="#FFFFFF" BorderBrush="#555555"/>
+                <TextBox Text="{Binding Password}" Background="#2D2D2D" Foreground="Blue" BorderBrush="#555555"/>
                  
                 <CheckBox Content="Запомнить сессию" IsChecked="{Binding RememberMe}" Foreground="#CCCCCC"/>
                   

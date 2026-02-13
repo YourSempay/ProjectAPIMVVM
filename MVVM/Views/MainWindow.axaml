@@ -6,6 +6,7 @@
         mc:Ignorable="d"
         x:Class="MVVM.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        xmlns:emplModels="clr-namespace:MVVM.Models.Employees"
         Title="Главное окно"
         Background="#1E1E1E"
         Foreground="#CCCCCC">
@@ -20,7 +21,17 @@
 
                 <TabControl>
                         <TabItem Header="Сотрудники">
-                                <DataGrid ItemsSource="{Binding Employees}" Background="#2D2D2D" Foreground="#FFFFFF"/>
+                                <ListBox ItemsSource="{Binding Employeess}">
+                                        <ListBox.ItemTemplate>
+                                                <DataTemplate x:DataType="emplModels:EmployeeDto">
+                                                        <StackPanel>
+                                                                <TextBlock Text="{Binding FullName}" FontWeight="Bold" />
+                                                                <TextBlock Text="{Binding Position}" FontSize="12" />
+                                                                <TextBlock Text="{Binding Status}" FontSize="12" />
+                                                        </StackPanel>
+                                                </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                </ListBox>
                         </TabItem>
                         <TabItem Header="Смены">
                                 <DataGrid ItemsSource="{Binding Shifts}" Background="#2D2D2D" Foreground="#FFFFFF"/>
